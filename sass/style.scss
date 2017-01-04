@@ -1,0 +1,407 @@
+@import "breakpoint";
+@import "vars/**";
+
+@keyframes appear {
+	0% {
+		transform: translateX(-400px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slidein {
+	0%{
+		margin-left: 100%;
+		width: 0;
+		opacity: 0;
+	}
+	100% {
+		margin-left: 0;
+		width: 66.6672%;
+		opacity: 1;
+	}
+}
+
+@keyframes popup {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.5;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes movinginright {
+	0% {
+		transform: translateX(-300px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes movinginleft {
+	0% {
+		transform: translateX(300px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes flip {
+	0% {
+		transform: rotateY(180deg) translateX(-200px);
+		opacity: 0;
+	}
+	100% {
+		transform: rotateY(0deg) translateX(0);
+		opacity: 1;
+	}
+}
+
+header {
+  height: 54px;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+	background-color: rgba(22, 26, 39, 1);
+	box-shadow: 0px 2px 30px rgba(0,0,0,0.3);
+	.header-content {
+		height: 54px;
+		position: fixed;
+		z-index: 20;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.img-wrapper {
+	height: 850px;
+	position: relative;
+	background-image: linear-gradient(rgba(22, 26, 39, 1) 35%,rgba(22, 26, 39, 0.4)), url(../img/fashion-men-vintage-colorful.jpg);
+	background-size: cover;
+}
+
+.hero {
+	position: absolute;
+	top: 400px;
+	.hero-line {
+		font-family: "Oswald";
+		line-height: 1.2em;
+		font-weight: 700;
+		color: white;
+		margin-left: auto;
+		text-align: right;
+		animation: {
+			name: appear;
+			delay: 250ms;
+			duration: 1s;
+			iteration-count: 1;
+			fill-mode: forwards;
+		}
+	}
+	.hero-des {
+		font-family: "Oswald";
+		font-size: 1.1em;
+		line-height: 1.6em;
+		text-align: right;
+		margin-top: 2em;
+		color: #4a4a4a + 100;
+		font-weight: 400;
+		padding-right: 1em;
+		animation: {
+			name: slidein;
+			duration: 1.8s;
+			delay: 250ms;
+			iteration-count: 1;
+			fill-mode: forwards;
+		}
+	}
+}
+
+.page-id {
+	font-family: 'Oswald', sans-serif;
+	padding-top: 0.6em;
+	color: #353533 + 60;
+	font-weight: 300;
+}
+
+
+.beliefs-section {
+	.beliefs {
+		position: relative;
+		.belief-link {
+			@for $i from 1 through 6 {
+					&:nth-child(#{$i}) {
+						animation: {
+							name: appear;
+							delay: 150ms;
+							duration: (250ms * $i);
+							iteration-count: 1;
+							timing-function: cubic-beizer(.26,.96,.81,1.01);
+							fill-mode: forwards;
+						}
+					}
+				}
+			a {
+				text-decoration: none;
+				color: #FC622C;
+				&:hover {
+					text-decoration: underline;
+					color: rgba(22, 26, 39, 1);
+				}
+			}
+			.img-section li img {
+				position: absolute;
+				visibility: hidden;
+			}
+			&:hover .img-section li img {
+        visibility: visible;
+        animation: {
+        	name: popup;
+          duration: 800ms;
+          timing-function: cubic-beizer(.26,.96,.81,1.01);
+          delay: 0;
+          iteration-count: 1;
+          fill-mode: forwards;
+        }
+			}
+		}
+	}
+}
+
+.portfolio {
+	background-color: rgba(22, 26, 39, 1);
+	.master {
+		position: relative;
+		@for $i from 1 through 2 {
+			&:nth-child(#{$i}) {
+				animation: {
+					name: movinginright;
+					iteration-count: 1;
+					delay: 150ms;
+					timing-function: cubic-beizer(.26,.96,.81,1.01);
+					fill-mode: forwards;
+				}
+			}
+		}
+		@for $i from 3 through 4 {
+			&:nth-child(#{$i}) {
+				animation: {
+					name: movinginleft;
+					iteration-count: 1;
+					delay: 150ms;
+					timing-function: cubic-beizer(.26,.96,.81,1.01);
+					fill-mode: forwards;
+				}
+			}
+		}
+    @for $i from 1 through 4 {
+    	&:nth-child(#{$i}) {
+    		animation-duration: (400ms * $i);
+    	}
+    }
+		.product-bg {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+		.overlay {
+			position: absolute;
+			width: 100%;
+			height: 100%;	
+			top: 0;
+			left: 0;
+			background-color: rgba(22, 26, 39, 0.8);
+			z-index: 3;
+		}
+		.card {
+			padding: 1.2em;
+			.product-logo {
+				display: block;
+				width: 20%;
+				margin: 0 auto;
+				position: relative;
+				z-index: 5;
+			}
+			.product-name {
+				font-family: "Oswald";
+				display: block;
+				text-align: center;
+				color: #fc622c;
+				font-size: 1.6em;
+				font-weight: 400;
+				text-decoration: none;
+				position: relative;
+				z-index: 5;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.product-des {
+				text-align: center;
+				margin-top: 1.6em;
+				font-size: 0.9em;
+				color: white;
+				line-height: 1.2em;
+				position: relative;
+				z-index: 5;
+			}
+		}
+	}
+}
+
+.mas-footer {
+	background-color: black + 40;
+	margin-top: 4em;
+	.footer {
+		.text-info {
+			.mail-us {
+				span {
+					color: #4a4a4a + 40;
+					font-weight: 400;
+					margin-bottom: 0.4em;
+					font-size: 0.8em;
+				}
+				a {
+					font-family: "Oswald";
+					font-weight: 400;
+					color: #fc622c;
+					text-decoration: none;
+					font-size: 0.8em;
+					letter-spacing: 0.02em;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			.call-us {
+				p {
+					display: inline;
+					color: #4a4a4a + 40;
+					font-weight: 400;
+					margin-bottom: 0.4em;
+					font-size: 0.8em;
+				}
+				span {
+					font-family: "Oswald";
+					font-weight: 400;
+					color: #fc622c;
+					font-size: 0.8em;
+					letter-spacing: 0.02em;
+				}
+			}
+			.locate {
+				a {
+					font-family: "Oswald";
+					font-weight: 400;
+					font-size: 0.8em;
+					text-decoration: none;
+					color: #fc622c;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+		.copyright-sec {
+			display: flex;
+			justify-content: center;
+			span {
+				font-size: 0.8em;
+				color: #4a4a4a + 20;
+			}
+		}
+		.footer-menu {
+			display: block;
+			text-align: center;
+			li {
+				display: inline;
+				margin: 0 1em;
+				&:last-child {
+					margin-right: 0;
+				}
+				&:first-child {
+					margin-left: 0;
+				}
+				a {
+					font-size: 0.8em;
+					text-decoration: none;
+					color: #4a4a4a + 40;
+					&:hover {
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
+
+#ourwork {
+	margin-top: 4em;
+}
+
+#ourteam {
+	margin-top: 4em;
+}
+
+.master-por {
+	@for $i from 1 through 6 {
+		&:nth-of-type(#{$i}) {
+			animation: {
+				name: flip;
+				duration: 1000ms;
+				timing-function: ease;
+				delay: (200ms * $i) - 400ms;
+				iteration-count: 1;
+				fill-mode: forwards;
+			}
+		}
+	}
+	.portrayal-sec {
+		img {
+			margin: 1em 0;
+		}
+		.name {
+			font-family: "Oswald";
+			font-size: 1.2em;
+			margin: 1em 0 0.4em 0;
+			color: #FC622C;
+		}
+	}
+}
+
+#menutoggle {
+	display: none;
+}
+
+.hamburger {
+	font-size: 2em;
+	color: rgba(252, 98, 44, 1);
+	padding: 4px 8px;
+	padding-right: 0;
+	&:hover, &:active {
+		cursor: pointer;
+	}
+}
