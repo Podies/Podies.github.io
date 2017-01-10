@@ -93,7 +93,8 @@
           text-decoration: none;
           color: #fc622c;
           font-weight: 400;
-          font-size: 0.9em; }
+          font-size: 0.9em;
+          transition: all 250ms ease-out; }
           header .header-content .primary-nav ul li a:hover {
             color: white; }
   header .header-content #menutoggle:checked + .primary-nav ul {
