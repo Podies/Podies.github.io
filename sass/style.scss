@@ -1,13 +1,44 @@
 @import "breakpoint";
 @import "vars/**";
 
-@keyframes appear {
+$font-family1: 'montserrat';
+$font-family2: 'Rancho';
+
+@-webkit-keyframes appear {
 	0% {
-		transform: translateX(-400px);
+		-webkit-transform: translateX(-400px);
+		        transform: translateX(-400px);
 		opacity: 0;
 	}
 	100% {
-		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes appear {
+	0% {
+		-webkit-transform: translateX(-400px);
+		        transform: translateX(-400px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes slidein {
+	0%{
+		margin-left: 100%;
+		width: 0;
+		opacity: 0;
+	}
+	100% {
+		margin-left: 0;
+		width: 66.6672%;
 		opacity: 1;
 	}
 }
@@ -25,50 +56,116 @@
 	}
 }
 
-@keyframes popup {
+@-webkit-keyframes popup {
 	0% {
-		transform: scale(0);
+		-webkit-transform: scale(0);
+		        transform: scale(0);
 		opacity: 0;
 	}
 	50% {
-		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		        transform: scale(1.2);
 		opacity: 0.5;
 	}
 	100% {
-		transform: scale(1);
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes popup {
+	0% {
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+		opacity: 0;
+	}
+	50% {
+		-webkit-transform: scale(1.2);
+		        transform: scale(1.2);
+		opacity: 0.5;
+	}
+	100% {
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes movinginright {
+	0% {
+		-webkit-transform: translateX(-300px);
+		        transform: translateX(-300px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
 		opacity: 1;
 	}
 }
 
 @keyframes movinginright {
 	0% {
-		transform: translateX(-300px);
+		-webkit-transform: translateX(-300px);
+		        transform: translateX(-300px);
 		opacity: 0;
 	}
 	100% {
-		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes movinginleft {
+	0% {
+		-webkit-transform: translateX(300px);
+		        transform: translateX(300px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
 		opacity: 1;
 	}
 }
 
 @keyframes movinginleft {
 	0% {
-		transform: translateX(300px);
+		-webkit-transform: translateX(300px);
+		        transform: translateX(300px);
 		opacity: 0;
 	}
 	100% {
-		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes flip {
+	0% {
+		-webkit-transform: rotateY(180deg) translateX(-200px);
+		        transform: rotateY(180deg) translateX(-200px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: rotateY(0deg) translateX(0);
+		        transform: rotateY(0deg) translateX(0);
 		opacity: 1;
 	}
 }
 
 @keyframes flip {
 	0% {
-		transform: rotateY(180deg) translateX(-200px);
+		-webkit-transform: rotateY(180deg) translateX(-200px);
+		        transform: rotateY(180deg) translateX(-200px);
 		opacity: 0;
 	}
 	100% {
-		transform: rotateY(0deg) translateX(0);
+		-webkit-transform: rotateY(0deg) translateX(0);
+		        transform: rotateY(0deg) translateX(0);
 		opacity: 1;
 	}
 }
@@ -84,15 +181,20 @@ header {
 		height: 54px;
 		position: fixed;
 		z-index: 20;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 }
 
 .img-wrapper {
 	height: 850px;
 	position: relative;
-	background-image: linear-gradient(rgba(22, 26, 39, 1) 35%,rgba(22, 26, 39, 0.4)), url(../img/fashion-men-vintage-colorful.jpg);
+	background-image: url(../img/castle.jpg);
+	background-position: 70% 50%;
 	background-size: cover;
 }
 
@@ -100,8 +202,9 @@ header {
 	position: absolute;
 	top: 400px;
 	.hero-line {
-		font-family: "Oswald";
+		font-family: "montserrat";
 		line-height: 1.2em;
+		letter-spacing: -0.05em;
 		font-weight: 700;
 		color: white;
 		margin-left: auto;
@@ -115,12 +218,12 @@ header {
 		}
 	}
 	.hero-des {
-		font-family: "Oswald";
-		font-size: 1.1em;
-		line-height: 1.6em;
+		font-family: $font-family2;
+		font-size: 1.4em;
+		line-height: 1.3em;
 		text-align: right;
 		margin-top: 2em;
-		color: #4a4a4a + 100;
+		color: white;
 		font-weight: 400;
 		padding-right: 1em;
 		animation: {
@@ -134,7 +237,7 @@ header {
 }
 
 .page-id {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'montserrat', sans-serif;
 	padding-top: 0.6em;
 	color: #353533 + 60;
 	font-weight: 300;
@@ -160,6 +263,7 @@ header {
 			a {
 				text-decoration: none;
 				color: #FC622C;
+				-webkit-transition: all 300ms ease-out;
 				transition: all 300ms ease-out;
 				&:hover {
 					text-decoration: underline;
@@ -215,7 +319,8 @@ header {
 		}
     @for $i from 1 through 4 {
     	&:nth-child(#{$i}) {
-    		animation-duration: (400ms * $i);
+    		-webkit-animation-duration: (400ms * $i);
+    		        animation-duration: (400ms * $i);
     	}
     }
 		.product-bg {
@@ -256,6 +361,7 @@ header {
 				text-decoration: none;
 				position: relative;
 				z-index: 5;
+				-webkit-transition: all 250ms ease-out;
 				transition: all 250ms ease-out;
 				&:hover {
 					text-decoration: underline;
@@ -339,8 +445,12 @@ header {
 			}
 		}
 		.copyright-sec {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
-			justify-content: center;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
 			span {
 				font-size: 0.8em;
 				color: #4a4a4a + 20;
@@ -362,6 +472,7 @@ header {
 					font-size: 0.8em;
 					text-decoration: none;
 					color: #4a4a4a + 40;
+					-webkit-transition: all 250ms ease-out;
 					transition: all 250ms ease-out;
 					&:hover {
 						color: white;

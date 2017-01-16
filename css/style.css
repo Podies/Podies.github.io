@@ -486,13 +486,39 @@ table {
     left: 95%;
   }
 }
-@keyframes appear {
+@-webkit-keyframes appear {
   0% {
+    -webkit-transform: translateX(-400px);
     transform: translateX(-400px);
     opacity: 0;
   }
   100% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes appear {
+  0% {
+    -webkit-transform: translateX(-400px);
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slidein {
+  0% {
+    margin-left: 100%;
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    margin-left: 0;
+    width: 66.6672%;
     opacity: 1;
   }
 }
@@ -508,46 +534,108 @@ table {
     opacity: 1;
   }
 }
-@keyframes popup {
+@-webkit-keyframes popup {
   0% {
+    -webkit-transform: scale(0);
     transform: scale(0);
     opacity: 0;
   }
   50% {
+    -webkit-transform: scale(1.2);
     transform: scale(1.2);
     opacity: 0.5;
   }
   100% {
+    -webkit-transform: scale(1);
     transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes popup {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes movinginright {
+  0% {
+    -webkit-transform: translateX(-300px);
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes movinginright {
   0% {
+    -webkit-transform: translateX(-300px);
     transform: translateX(-300px);
     opacity: 0;
   }
   100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes movinginleft {
+  0% {
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes movinginleft {
   0% {
+    -webkit-transform: translateX(300px);
     transform: translateX(300px);
     opacity: 0;
   }
   100% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: rotateY(180deg) translateX(-200px);
+    transform: rotateY(180deg) translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0deg) translateX(0);
+    transform: rotateY(0deg) translateX(0);
     opacity: 1;
   }
 }
 @keyframes flip {
   0% {
+    -webkit-transform: rotateY(180deg) translateX(-200px);
     transform: rotateY(180deg) translateX(-200px);
     opacity: 0;
   }
   100% {
+    -webkit-transform: rotateY(0deg) translateX(0);
     transform: rotateY(0deg) translateX(0);
     opacity: 1;
   }
@@ -564,14 +652,19 @@ header .header-content {
   height: 54px;
   position: fixed;
   z-index: 20;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .img-wrapper {
   height: 850px;
   position: relative;
-  background-image: linear-gradient(#161a27 35%, rgba(22, 26, 39, 0.4)), url(../img/fashion-men-vintage-colorful.jpg);
+  background-image: url(../img/castle.jpg);
+  background-position: 70% 50%;
   background-size: cover;
 }
 
@@ -580,8 +673,9 @@ header .header-content {
   top: 400px;
 }
 .hero .hero-line {
-  font-family: "Oswald";
+  font-family: "montserrat";
   line-height: 1.2em;
+  letter-spacing: -0.05em;
   font-weight: 700;
   color: white;
   margin-left: auto;
@@ -593,12 +687,12 @@ header .header-content {
   animation-fill-mode: forwards;
 }
 .hero .hero-des {
-  font-family: "Oswald";
-  font-size: 1.1em;
-  line-height: 1.6em;
+  font-family: "Rancho";
+  font-size: 1.4em;
+  line-height: 1.3em;
   text-align: right;
   margin-top: 2em;
-  color: #aeaeae;
+  color: white;
   font-weight: 400;
   padding-right: 1em;
   animation-name: slidein;
@@ -609,7 +703,7 @@ header .header-content {
 }
 
 .page-id {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'montserrat', sans-serif;
   padding-top: 0.6em;
   color: #71716f;
   font-weight: 300;
@@ -669,6 +763,7 @@ header .header-content {
 .beliefs-section .beliefs .belief-link a {
   text-decoration: none;
   color: #FC622C;
+  -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
 .beliefs-section .beliefs .belief-link a:hover {
@@ -726,15 +821,19 @@ header .header-content {
   animation-fill-mode: forwards;
 }
 .portfolio .master:nth-child(1) {
+  -webkit-animation-duration: 400ms;
   animation-duration: 400ms;
 }
 .portfolio .master:nth-child(2) {
+  -webkit-animation-duration: 800ms;
   animation-duration: 800ms;
 }
 .portfolio .master:nth-child(3) {
+  -webkit-animation-duration: 1200ms;
   animation-duration: 1200ms;
 }
 .portfolio .master:nth-child(4) {
+  -webkit-animation-duration: 1600ms;
   animation-duration: 1600ms;
 }
 .portfolio .master .product-bg {
@@ -776,6 +875,7 @@ header .header-content {
   text-decoration: none;
   position: relative;
   z-index: 5;
+  -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
 }
 .portfolio .master .card .product-name:hover {
@@ -847,7 +947,11 @@ header .header-content {
   text-decoration: underline;
 }
 .mas-footer .footer .copyright-sec {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 .mas-footer .footer .copyright-sec span {
@@ -872,6 +976,7 @@ header .header-content {
   font-size: 0.8em;
   text-decoration: none;
   color: #727272;
+  -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
 }
 .mas-footer .footer .footer-menu li a:hover {
